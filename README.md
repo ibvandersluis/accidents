@@ -8,7 +8,21 @@ The project seeks to analyse UK accident data in an attempt to find factors prio
 
 The dataset used in this project can be found in the [accidents.csv](accidents.csv) file and was downloaded from the Kaggle dataset [Road Accidents Incidence](https://www.kaggle.com/akshay4/road-accidents-incidence#Kaagle_Upload.csv).
 
-This is a large dataset with some 250,000 observations of 70 variables each. The data will require some preparation and reduction. See [s3_data_exploration.md](s3_data_exploration.md) for the details on this.
+This is a large dataset with some 250,000 observations of 70 variables each. The data will require some preparation and reduction. See [data_exploration.md](data_exploration.md) for the details on this.
+
+## Report
+
+This project is documented in a report, laid out in markdown files:
+
+1. [Abstract](abstract.md)
+2. [Introduction](introduction.md)
+3. [Literature Review](lit_review.md)
+4. [Data Exploration](data_exploration.md)
+5. [Methodology](methodology.md)
+6. [Results](results.md)
+7. [Discussion](discussion.md)
+8. [Conclusion](conclusion.md)
+9. [Future Study](future_study.md)
 
 ## Resources
 
