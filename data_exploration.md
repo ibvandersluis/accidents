@@ -45,6 +45,8 @@ Other variables of interest include:
 - Speed Limit
 - Engine Capacity
 - Age of Vehicle
+- Driver IMD Decile
+- Driver Home Area Type
 
 ### __Variables Not of Interest__
 
@@ -61,8 +63,6 @@ These variables were not found to be of interest and should not have any predict
 - Longitude
 - Lower Super Output Area of Accident
 - Vehicle Reference
-- IMD Decile
-- Home Area Type
 
 These variables refer to events that take place after the accident occurs and therefore cannot be used to predict a fatal accident:
 - Police Officer Attend
