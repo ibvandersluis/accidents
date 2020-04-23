@@ -92,3 +92,9 @@ Variables describing the accident itself, rather than events leading up to the a
 - Ped Movement
 
 ## Processing
+
+To prepare the data, the entire dataset was imported from the `accidents.csv` file, consisting of over 285,000 observations of 70 attributes each. The response variable 'fatal' was created based on the data from the 'accident_severity' attribute.
+
+27 features were then deleted from the data frame, after which the remaining attributes were examined to determine if any additional features could be removed. An additional 4 were deleted. The resulting dataset contained 39 attributes.
+
+Finally, the dataset was reduced to the first 5,000 observations to decrease the load on the system. The dataset was then exported to `prep.csv`.
