@@ -98,10 +98,11 @@ AccidentData$time = substring(AccidentData$time, first = 12)
 # Remove date
 AccidentData$date = NULL
 
+str(AccidentData)
+
 # The data frame is still far too large. We will trim it down to the first 5000 observations
 # Hopefully this means that they are also the most recent observations
 # However, since the date variable was useless, we don't know that
-
 AccidentData = AccidentData[1:5000,]
 
 # Export CSV of prepared data
