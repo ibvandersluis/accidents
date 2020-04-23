@@ -56,6 +56,8 @@ AccidentData$casualty_reference = NULL
 AccidentData$casualty_severity = NULL
 AccidentData$casualty_home_area_type = NULL
 AccidentData$casualty_imd_decile = NULL
+AccidentData$accident_index = NULL
+AccidentData$vehicle_reference = NULL
 
 # Check if variance of feature includes fatality
 table(AccidentData$speed_limit, AccidentData$fatal)
@@ -97,6 +99,12 @@ AccidentData$time = substring(AccidentData$time, first = 12)
 # Unfortunately this means it cannot be relied upon for any useful information
 # Remove date
 AccidentData$date = NULL
+
+# The data frame is still far too large. We will trim it down to the first 5000 observations
+# Hopefully this means that they are also the most recent observations
+# However, since the date variable was useless, we don't know that
+
+AccidentData = AccidentData[1:5000,]
 
 # Export CSV of prepared data
 write.csv(AccidentData, "prepv1.csv", row.names = F)
