@@ -11,7 +11,6 @@ rm(list=ls())
 AccidentData = read.csv("accidents.csv", header = T, na.strings = "-1")
 
 # Inspect data
-fix(AccidentData)
 dim(AccidentData)
 names(AccidentData)
 
@@ -79,7 +78,6 @@ prop.table(table(AccidentData$urban_or_rural_area, AccidentData$fatal))
 
 table(AccidentData$driver_imd_decile, AccidentData$fatal)
 summary(AccidentData$driver_imd_decile)
-fix(AccidentData)
 # The feature driver_imd_decile is entirely empty and can be removed
 AccidentData$driver_imd_decile = NULL
 
@@ -107,7 +105,7 @@ AccidentData$date = NULL
 AccidentData = AccidentData[1:5000,]
 
 # Export CSV of prepared data
-write.csv(AccidentData, "prepv1.csv", row.names = F)
+write.csv(AccidentData, "prep.csv", row.names = F)
 
 
 # Save history
