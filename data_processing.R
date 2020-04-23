@@ -67,16 +67,42 @@ table(AccidentData$junction_detail, AccidentData$fatal)
 table(AccidentData$propulsion_code, AccidentData$fatal)
 table(AccidentData$skidding_and_overturning, AccidentData$fatal)
 table(AccidentData$was_vehicle_left_hand_drive., AccidentData$fatal)
+table(AccidentData$number_of_vehicles, AccidentData$fatal)
+
+table(AccidentData$urban_or_rural_area, AccidentData$fatal)
+prop.table(table(AccidentData$urban_or_rural_area, AccidentData$fatal))
+# Important note:
+# The above table indicates that non-fatal accidents are far more likely in an urban area
+# But fatal accidents are far more likey in a rural area
+
 table(AccidentData$driver_imd_decile, AccidentData$fatal)
 summary(AccidentData$driver_imd_decile)
 fix(AccidentData)
 # The feature driver_imd_decile is entirely empty and can be removed
 AccidentData$driver_imd_decile = NULL
-table(AccidentData$driver_home_area_type, AccidentData$fatal)
+
 table(AccidentData$vehicle_imd_decile, AccidentData$fatal)
 # vehicle_imd_decile is also empty and can be removed
 AccidentData$vehicle_imd_decile = NULL
+
 table(AccidentData$No_of_Vehicles_involved_unique_to_accident_index, AccidentData$number_of_vehicles)
 # No_of_Vehicles_involved_unique_to_accident_index is identical to numer_of_vehicles and can be removed
 AccidentData$No_of_Vehicles_involved_unique_to_accident_index = NULL
-table(AccidentData$number_of_vehicles, AccidentData$fatal)
+
+
+# Remove junk data from 'time' variable
+AccidentData$time = substring(AccidentData$time, first = 12)
+
+# The 'date' variable either shows a date in 2015 or an integer in the 40,000 range
+# Unfortunately this means it cannot be relied upon for any useful information
+# Remove date
+AccidentData$date = NULL
+
+# Export CSV of prepared data
+write.csv(AccidentData, "prepv1.csv", row.names = F)
+
+
+# Save history
+savehistory()
+# Quit
+q()
