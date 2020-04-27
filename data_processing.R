@@ -98,16 +98,59 @@ AccidentData$time = substring(AccidentData$time, first = 12)
 # Remove date
 AccidentData$date = NULL
 
+# Make data technically correct
+
 str(AccidentData)
 
-# The data frame is still far too large. We will trim it down to the first 5000 observations
-# Hopefully this means that they are also the most recent observations
-# However, since the date variable was useless, we don't know that
-AccidentData = AccidentData[1:5000,]
+# Much of the data is actually categorical, though R is identifying it numerically
+# We can change this by coercing the data type to factor
+
+AccidentData$vehicle_type = as.factor(AccidentData$vehicle_type)
+AccidentData$towing_and_articulation = as.factor(AccidentData$towing_and_articulation)
+AccidentData$vehicle_manoeuvre = as.factor(AccidentData$vehicle_manoeuvre)
+AccidentData$vehicle_location.restricted_lane = as.factor(AccidentData$vehicle_location.restricted_lane)
+AccidentData$junction_location = as.factor(AccidentData$junction_location)
+AccidentData$skidding_and_overturning = as.factor(AccidentData$skidding_and_overturning)
+AccidentData$hit_object_in_carriageway = as.factor(AccidentData$hit_object_in_carriageway)
+AccidentData$vehicle_leaving_carriageway = as.factor(AccidentData$vehicle_leaving_carriageway)
+AccidentData$hit_object_off_carriageway = as.factor(AccidentData$hit_object_off_carriageway)
+AccidentData$X1st_point_of_impact = as.factor(AccidentData$X1st_point_of_impact)
+AccidentData$was_vehicle_left_hand_drive. = as.factor(AccidentData$was_vehicle_left_hand_drive.)
+AccidentData$journey_purpose_of_driver = as.factor(AccidentData$journey_purpose_of_driver)
+AccidentData$sex_of_driver = as.factor(AccidentData$sex_of_driver)
+AccidentData$age_band_of_driver = as.factor(AccidentData$age_band_of_driver)
+AccidentData$propulsion_code = as.factor(AccidentData$propulsion_code)
+AccidentData$driver_home_area_type = as.factor(AccidentData$driver_home_area_type)
+AccidentData$day_of_week = as.factor(AccidentData$day_of_week)
+AccidentData$X1st_road_class = as.factor(AccidentData$X1st_road_class)
+AccidentData$road_type = as.factor(AccidentData$road_type)
+AccidentData$junction_detail = as.factor(AccidentData$junction_detail)
+AccidentData$junction_control = as.factor(AccidentData$junction_control)
+AccidentData$X2nd_road_class = as.factor(AccidentData$X2nd_road_class)
+AccidentData$pedestrian_crossing.human_control = as.factor(AccidentData$pedestrian_crossing.human_control)
+AccidentData$pedestrian_crossing.physical_facilities = as.factor(AccidentData$pedestrian_crossing.physical_facilities)
+AccidentData$light_conditions = as.factor(AccidentData$light_conditions)
+AccidentData$weather_conditions = as.factor(AccidentData$weather_conditions)
+AccidentData$road_surface_conditions = as.factor(AccidentData$road_surface_conditions)
+AccidentData$special_conditions_at_site = as.factor(AccidentData$special_conditions_at_site)
+AccidentData$carriageway_hazards = as.factor(AccidentData$carriageway_hazards)
+AccidentData$urban_or_rural_area = as.factor(AccidentData$urban_or_rural_area)
+
+# Convert boolean response variable to logical
+AccidentData$fatal = as.logical(AccidentData$fatal)
+
+# Convert time
+library(chron)
+AccidentData$time = chron(times=AccidentData$time)
+
+# Check data again
+str(AccidentData)
 
 # Export CSV of prepared data
 write.csv(AccidentData, "prep.csv", row.names = F)
 
+# Export as dataframe that keeps formatting
+saveRDS(AccidentData, file="prep.rds")
 
 # Save history
 savehistory()
