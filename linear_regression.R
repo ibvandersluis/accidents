@@ -10,10 +10,11 @@ loadhistory()
 rm(list=ls())
 
 # Load data
-accidents = read.csv("prep.csv")
+accidents = readRDS("prep.rds")
 attach(accidents)
 summary(fatal)
 table(fatal)
+str(accidents)
 
 # Create test set
 test = 1:1000
@@ -24,6 +25,7 @@ test.Y = fatal[test]
 
 # Fit multiple logistic regression
 glm.fit = glm(fatal ~ ., data = accidents, family = binomial, subset = -test)
+summary(glm.fit)
 
 # Make predictions
 glm.probs = predict(glm.fit, accidents[test,], type = "response")
