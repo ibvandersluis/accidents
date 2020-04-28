@@ -17,16 +17,18 @@ table(fatal)
 str(accidents)
 
 # Create test set
-test = 1:1000
-train.X = accidents[-test,]
-test.X = accidents[test,]
-train.Y = fatal[-test]
-test.Y = fatal[test]
+# Get random sample to test on
+set.seed(42)
+testRows = sample(1:nrow(accidents), 0.1*nrow(accidents))
+train = accidents[-testRows,]
+test = accidents[testRows,]
 
 # Fit multiple logistic regression
-glm.fit = glm(fatal ~ ., data = accidents, family = binomial, subset = -test)
-summary(glm.fit)
+lm.fit = lm(fatal ~ ., data = train)
+summary(lm.fit)
+lm.preds = predict(lm.fit, test)
+results = data.frame(cbind(actuals=test, predicteds=lm.preds))
+table(results)
+cor(results)
 
-# Make predictions
-glm.probs = predict(glm.fit, accidents[test,], type = "response")
-# Error in model.frame.default
+# Something went wrong
