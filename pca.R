@@ -10,7 +10,7 @@ loadhistory()
 rm(list=ls())
 
 # Import data
-accidents = read.csv("prep.csv")
+accidents = readRDS("prep.rds")
 
 # Get column names
 names(accidents)
