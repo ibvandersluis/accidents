@@ -76,3 +76,6 @@ table(knn.pred, test.Y)
 3/(3 + 70)
 # We predict 4.1% of fatal crashes
 # Our predictions become less meaningful. Our best fit is k=1.
+
+# Save history
+savehistory()
