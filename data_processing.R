@@ -159,6 +159,10 @@ str(accidents)
 # All features are numeric, check for significance of variables and if we can remove any
 # Inpect correlations
 cor(accidents)
+# Looks like there are some NA values in $time, we remove them
+sum(is.na(accidents))
+accidents = na.omit(accidents)
+
 # Fit linear model
 lm.fit = lm(fatal ~ ., data = accidents)
 summary(lm.fit)
