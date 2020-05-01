@@ -16,6 +16,8 @@ To this end, this study seeks to maximise two quantifiable features:
 1. The ratio of fatal accidents successfully predicted to the total number of fatal accidents that were in the test set
 2. The ratio of fatal accidents successfully predicted to the total number of fatal predictions made
 
+For the rest of this study, these will be referred to as _detection accuracy_ and _prediction accuracy_ respectively.
+
 This will balance the trade-off between success in detecting fatal crashes and making accurate predictions. As will be seen in the following section, it is easy to detect all fatal crashes (by predicting all crashes will be fatal), and it isn't too much of a challenge to make few fatal predictions and have most of them be correct, but this study seeks to find a balance between the two.
 
 Each of the methods used for this study use a validation set approach to check the accuracy of the respective model. A random sample of the dataset equal to a tenth of the total observations is set aside, and training is performed on the remaining data. Predictions are then made using the test data, then checked for accuracy against the response variable Fatal.
