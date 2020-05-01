@@ -24,7 +24,7 @@ In order to catch more accidents than the kNN model, we find that with a thresho
 
 Because the classification tree would not grow using the default deviance sensitivity, it had to be adjusted to find the bost setting. Trying various sensitivity settings yielded that the best results were optained with a sensitivity of 0.0009.
 
-For 73 fatal accidents in the test set, the model accurately predicted only 12 of them, or 16.4%. However, the model only predicted that 31 accidents would be fatal, which means that its prediction accuracy was 38.7%.
+For 73 fatal accidents in the test set, the model accurately detected only 12 of them, or 16.4%. However, the model only predicted that 31 accidents would be fatal, which means that its prediction accuracy was 38.7%.
 
 Bagging offered improved results, successfully detecting 19 fatal accidents, or 26%. No accident that the model predicted would be fatal ended up being non-fatal, giving it 100% prediction accuracy.
 
