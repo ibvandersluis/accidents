@@ -20,17 +20,17 @@ This will balance the trade-off between success in detecting fatal crashes and m
 
 Each of the methods used for this study use a validation set approach to check the accuracy of the respective model. A random sample of the dataset equal to a tenth of the total observations is set aside, and training is performed on the remaining data. Predictions are then made using the test data, then checked for accuracy against the response variable Fatal.
 
-## Multiple Logistic Regression
+## K-Nearest Neighbours
+This method was chosen for its ability to correctly classify observations based on the observations that are closest to it, allowing it to beat other methods such as linear regression if the decision boundary is non-linear.
+
+The experiment was run by loading loading the `class` library. Then the data was loaded into RStudio and scaled, excluding the response variable from scaling. The data was split into training and testing sets, and four kNN models were fit for k values 1, 3, 5, and 7. Testing for higher values of k was not pursued, as a clear trend in decreasing accuracy was observed for prior k values.
+
+## Logistic Regression
 This method was chosen for its ability to classify an obseration into one category or another based on the probability that it will be in that category. For this purpose, it is being used to assess the probability that a given car accident will be fatal, and the threshold for classification is adjusted to get the most useful results.
 
 To run this experiment, the data was loaded into RStudio from its RDS file and the seed was set. The dataset was then separated into a training dataset and a test dataset. The model was fit with the training data and the probabilities for the test observations were calculated.
 
 Next, a good discrimination threshold had to be found. Thresholds were tested starting with 50% and retested at increasingly low thresholds until the accelerated rate of incorrect guesses made further testing pointless.
-
-## K-Nearest Neighbours
-This method was chosen for its ability to correctly classify observations based on the observations that are closest to it, allowing it to beat other methods such as linear regression if the decision boundary is non-linear.
-
-The experiment was run by loading loading the `class` library. Then the data was loaded into RStudio and scaled, excluding the response variable from scaling. The data was split into training and testing sets, and four kNN models were fit for k values 1, 3, 5, and 7. Testing for higher values of k was not pursued, as a clear trend in decreasing accuracy was observed for prior k values.
 
 ## Decision Trees
 This method was chosen for the interpretability of the model to aid in determining which factors seem to be most significant in predicting fatal crashes.
