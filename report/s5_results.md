@@ -29,3 +29,6 @@ For 73 fatal accidents in the test set, the model accurately detected only 12 of
 Bagging offered improved results, successfully detecting 19 fatal accidents, or 26%. No accident that the model predicted would be fatal ended up being non-fatal, giving it 100% prediction accuracy.
 
 A random forest was made with `mtry=12`, half that of bagging. The prediction results were identical to the ones obtained from bagging. Attempts at fitting a random forest with different mtry values were not made due to the slow hardware available for the experiment.
+
+- Next - [Section 6: Discussion](s6_discussion.md)
+- Previous - [Section 4: Experiments](s4_experiments.md)
