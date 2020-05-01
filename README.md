@@ -14,15 +14,15 @@ This is a large dataset with some 250,000 observations of 70 variables each. The
 
 This project is documented in a report, laid out in markdown files:
 
-1. [Abstract](report/s0_abstract.md)
-2. [Introduction](report/s1_intro.md)
-3. [Literature Review](report/s2_lit_review.md)
-4. [Data Exploration](report/s3_data_exploration.md)
-5. [Methodology](report/s4_experiments.md)
-6. [Results](report/s5_results.md)
-7. [Discussion](report/s6_discussion.md)
-8. [Conclusion](report/s7_conclusion.md)
-9. [Future Study](report/s8_future_study.md)
+0. [Abstract](report/s0_abstract.md)
+1. [Introduction](report/s1_intro.md)
+2. [Literature Review](report/s2_lit_review.md)
+3. [Data Exploration](report/s3_data_exploration.md)
+4. [Methodology](report/s4_experiments.md)
+5. [Results](report/s5_results.md)
+6. [Discussion](report/s6_discussion.md)
+7. [Conclusion](report/s7_conclusion.md)
+8. [Future Study](report/s8_future_study.md)
 
 ## Resources
 
