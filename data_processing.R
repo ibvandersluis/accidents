@@ -216,29 +216,6 @@ plot(regfit.full, scale="adjr2")
 plot(regfit.full, scale="Cp")
 plot(regfit.full, scale="bic")
 
-# Make predict function for regsubsets
-predict.regsubsets = function(object, newdata, id, ...){
-  form = as.formula(object$call[[2]])
-  mat = model.matrix(form, newdata)
-  coefi = coef(object, id=id)
-  xvars = names(coefi)
-  mat[,xvars]%*%coefi
-}
-
-# Get best model with cross validation approach
-set.seed(42)
-k=10
-folds = sample(1:k, nrow(accidents), replace=TRUE)
-cv.errors = matrix(NA, k, 25, dimnames=list(NULL, paste(1:25)))
-
-for(j in 1:k) {
-  best.fit = regsubsets(fatal ~ ., data = accidents[folds!=j,], nvmax=25)
-  for(i in 1:25) {
-    pred = predict(best.fit, accidents[folds==j,], id=i)
-    cv.errors[j, i] = mean((accidents$fatal[folds==j]-pred)^2)
-  }
-}
-
 # Export CSV of prepared data
 write.csv(accidents, "prep.csv", row.names = F)
 

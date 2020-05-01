@@ -97,3 +97,6 @@ summary(boost.accidents)
 yhat.boost = predict(boost.accidents, newdata=accidents.test, n.trees=1000)
 table(yhat.boost, fatal.test)
 # Boosting gets error
+
+# Save history
+savehistory()
