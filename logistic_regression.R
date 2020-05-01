@@ -52,25 +52,26 @@ table(glm.preds, fatal.test)
 glm.preds = rep(0,10132)
 glm.preds[glm.probs>.05] = 1
 table(glm.preds, fatal.test)
-# We successfully predict 10 of 71 fatal accidents
+# We successfully predict 10 of 73 fatal accidents
 
 # Try with threshold = 0.04
 glm.preds = rep(0,10132)
 glm.preds[glm.probs>.04] = 1
 table(glm.preds, fatal.test)
-# We successfully predict 14 of 71 fatal accidents
+# We successfully predict 14 of 73 fatal accidents
 
 # Try with threshold = 0.03
 glm.preds = rep(0,10132)
 glm.preds[glm.probs>.03] = 1
 table(glm.preds, fatal.test)
-# We successfully predict 20 of 71 fatal accidents
+# We successfully predict 20 of 73 fatal accidents
 
 # Try with threshold = 0.02
 glm.preds = rep(0,10132)
 glm.preds[glm.probs>.02] = 1
 table(glm.preds, fatal.test)
-# We successfully predict 30 of 71 fatal accidents
+# We successfully predict 30 of 73 fatal accidents
+30/(30 + 43)
 # With a lot of incorrect predictions as well...
 # Predict 695, of which 30 are correct
 30/(30 + 665)
