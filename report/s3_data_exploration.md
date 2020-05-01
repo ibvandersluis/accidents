@@ -105,6 +105,6 @@ Best subsets selection was performed to determine if the dataset should be furth
 
 The finished, prepared dataset was exported as a CSV and also in RDS format so that it could be imported and used in the R scripts for each experiment.
 
-- Next - [Section 4: Experiments](s4_experiments.md)
-- Previous -
+Next - [Section 4: Experiments](s4_experiments.md)  
+Previous -
 [Section 2: Literature Review](s2_lit_review.md)

@@ -17,5 +17,5 @@ A single decision tree can give decent prediction accuracy, but inferior detecti
 
 This table indicates that the most balanced models, and therefore the most useful, are a kNN model with k=1 and classification tree with bagging or a random forest.
 
-- Next - [Section 7: Conclusion](s7_conclusion.md)
-- Previous - [Section 5: Results](s5_results.md)
+Next - [Section 7: Conclusion](s7_conclusion.md)  
+Previous - [Section 5: Results](s5_results.md)

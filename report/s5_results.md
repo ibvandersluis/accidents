@@ -30,5 +30,5 @@ Bagging offered improved results, successfully detecting 19 fatal accidents, or 
 
 A random forest was made with `mtry=12`, half that of bagging. The prediction results were identical to the ones obtained from bagging. Attempts at fitting a random forest with different mtry values were not made due to the slow hardware available for the experiment.
 
-- Next - [Section 6: Discussion](s6_discussion.md)
-- Previous - [Section 4: Experiments](s4_experiments.md)
+Next - [Section 6: Discussion](s6_discussion.md)  
+Previous - [Section 4: Experiments](s4_experiments.md)

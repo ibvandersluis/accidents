@@ -45,5 +45,5 @@ The tree was grown and predictions were made. Pruning was attempted in order to 
 
 Bagging and random forrests were both applied as well.
 
-- Next - [Section 5: Results](s5_results.md)
-- Previous - [Section 3: Data Exploration and Processing](s3_data_exploration.md)
+Next - [Section 5: Results](s5_results.md)  
+Previous - [Section 3: Data Exploration and Processing](s3_data_exploration.md)
