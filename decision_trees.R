@@ -53,11 +53,21 @@ accidents.test = accidents[testRows,]
 fatal.test = fatal[testRows]
 
 # Fit classification tree
-tree.accidents = tree(fatal ~ ., accidents, subset=-testRows, control=tree.control(nobs=91192, mindev=0.0008))
+tree.accidents = tree(fatal ~ ., accidents, subset=-testRows, control=tree.control(nobs=91192, mindev=0.0009))
 tree.preds = predict(tree.accidents, accidents.test, type="class")
 table(tree.preds, fatal.test)
+12/(12 + 61)
+# Accurately predicted 16.4% of fatal accidents
+12/(12 + 19)
+# 38.7% of predictions were correct
 summary(tree.accidents)
+png("tree.png")
 plot(tree.accidents)
+dev.off()
+png("tree_text.png")
+plot(tree.accidents)
+text(tree.accidents, pretty=0)
+dev.off()
 
 # Implement pruning - doesn't work
 set.seed(1)
@@ -77,6 +87,8 @@ bag.accidents = randomForest(fatal ~ ., data=accidents.train, mtry=25, importanc
 bag.accidents
 yhat.bag = predict(bag.accidents, newdata=accidents.test)
 table(yhat.bag, fatal.test)
+# Successfully predicts 19 accidents
+19/73
 # Bagging doesn't predict any fatal accidents that turn out not to be fatal,
 # but not as good at catching fatal accidents as kNN
 
@@ -85,18 +97,10 @@ set.seed(1)
 rf.accidents = randomForest(fatal ~ ., data=accidents.train, mtry=12, importance=T)
 yhat.rf = predict(rf.accidents, newdata=accidents.test)
 table(yhat.rf, fatal.test)
+# Identical to bagging
 importance(rf.accidents)
 plot(importance(rf.accidents))
 varImpPlot(rf.accidents)
-
-# Try boosting
-library(gbm)
-set.seed(1)
-boost.accidents = gbm(fatal ~ ., data=accidents.train, distribution="bernoulli", n.trees=1000, interaction.depth=9)
-summary(boost.accidents)
-yhat.boost = predict(boost.accidents, newdata=accidents.test, n.trees=1000)
-table(yhat.boost, fatal.test)
-# Boosting gets error
 
 # Save history
 savehistory()
