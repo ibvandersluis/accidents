@@ -45,6 +45,8 @@ mean(test.Y != 0)
 table(knn.pred, test.Y)
 24/(24 + 49)
 # We predicted 32.8% of fatal crashes
+24/(24 + 46)
+# Our predictions for fatal crashes were 34.2% accurate
 # Considering fatal crashes happen less than 1% of the time,
 # K=1 gives us a significantly better result compared with just guessing
 
@@ -75,6 +77,8 @@ mean(test.Y != 0)
 table(knn.pred, test.Y)
 3/(3 + 70)
 # We predict 4.1% of fatal crashes
+3/7
+# Our predictions are 42.8 % accurate
 # Our predictions become less meaningful. Our best fit is k=1.
 
 # Save history
