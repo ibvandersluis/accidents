@@ -197,24 +197,36 @@ regfit.full = regsubsets(fatal ~ ., accidents, nvmax=25)
 reg.summary= summary(regfit.full)
 reg.summary$rsq
 # Plot RSS
+png("rss.png")
 plot(reg.summary$rss, xlab="Number of Variables", ylab="RSS", type="l")
+dev.off()
 # Plot Adjusted Rsq
+png("adjr2.png")
 plot(reg.summary$adjr2, xlab="Number of Variables", ylab="Adjusted RSq", type="l")
 which.max(reg.summary$adjr2)
 points(25, reg.summary$adjr2[25], col="red", cex=2, pch=20)
+dev.off()
 # Plot Cp
+png("cp.png")
 plot(reg.summary$cp, xlab="Number of Variables", ylab="Cp", type="l")
 which.min(reg.summary$cp)
 points(25, reg.summary$cp[25], col="red", cex=2, pch=20)
+dev.off()
 # Plot BIC
+png("bic.png")
 plot(reg.summary$bic, xlab="Number of Variables", ylab="BIC", type="l")
 which.min(reg.summary$bic)
 points(17, reg.summary$bic[17], col="red", cex=2, pch=20)
+dev.off()
 
 plot(regfit.full, scale="r2")
 plot(regfit.full, scale="adjr2")
 plot(regfit.full, scale="Cp")
 plot(regfit.full, scale="bic")
+
+# Inspect resulting dataset
+table(accidents$fatal)
+prop.table(table(accidents$fatal))
 
 # Export CSV of prepared data
 write.csv(accidents, "prep.csv", row.names = F)
